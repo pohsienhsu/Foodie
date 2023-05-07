@@ -1,12 +1,16 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Modal from '../UI/Modal/Modal';
+import CartContext from '../../store/cart-context';
 
 import styles from './Cart.module.css';
 
 
 const Cart = (props) => {
-  const cartItems = [{ id: 'c1', name: 'Sushi', amount: 2, price: 12.99 }].map((item) => {
-    return <li>{item.name}</li>
+
+  const cartCtx = useContext(CartContext);
+
+  const cartItems = cartCtx.items.map((item) => {
+    return <li>{item.name} {item.price * item.amount}</li>
   });
 
   return (
@@ -15,8 +19,8 @@ const Cart = (props) => {
         {cartItems}
       </ul>
       <div className={styles.total}>
-        <span>Total Amount</span>
-        <span>35.62</span>
+        <span>Total Amount:</span>
+        <span>{cartCtx.totalAmount.toFixed(2)}</span>
       </div>
       <div className={styles.actions}>
         <button className={styles['button--alt']} onClick={props.onHideCart}>Close</button>
