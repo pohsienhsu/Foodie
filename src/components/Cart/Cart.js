@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import Modal from '../UI/Modal/Modal';
 import CartContext from '../../store/cart-context';
 import CartItem from './CartItem';
+import Checkout from './Checkout';
 
 import styles from './Cart.module.css';
 
@@ -44,6 +45,7 @@ const Cart = (props) => {
         <span>Total Amount:</span>
         <span>{totalAmount}</span>
       </div>
+      <Checkout />
       <div className={styles.actions}>
         <button className={styles['button--alt']} onClick={props.onHideCart}>Close</button>
         {hasItems && <button className={styles.button}>Order</button>}
