@@ -3,8 +3,14 @@ import React from 'react';
 import styles from './Checkout.module.css';
 
 const Checkout = (props) => {
+
+  const confirmHandler = (event) => {
+    event.preventDefault();
+    console.log('confirmed!');
+  }
+
   return (
-    <form>
+    <form onSubmit={confirmHandler}>
       <div className={styles.control}>
         <label htmlFor='name'>Your Name</label>
         <input id='name' type='text'/>
@@ -21,7 +27,8 @@ const Checkout = (props) => {
         <label htmlFor='city'>City</label>
         <input id='city' type='text'/>
       </div>
-      <button type="submit">Confirm</button>
+      <button type="button" onClick={props.onCancel}>Cancel</button>
+      <button>Confirm</button>
     </form>
   )
 }

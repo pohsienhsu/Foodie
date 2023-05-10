@@ -2,8 +2,6 @@ import React, { useEffect, useState, useCallback } from 'react';
 import Card from '../UI/Card/Card';
 import MealItem from './MealItem/MealItem';
 
-import axios from 'axios';
-
 import styles from './AvailableMeals.module.css';
 
 
